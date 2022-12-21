@@ -7,6 +7,11 @@ class Aluno(models.Model):
     cpf = models.CharField(max_length=1)
     data_nascimento = models.DateField()
 
+    class Meta:
+        verbose_name_plural = 'Alunos'
+        verbose_name = 'aluno'
+        ordering = ('nome',)
+
     def __str__(self):
         return self.nome
 
@@ -21,6 +26,11 @@ class Curso(models.Model):
     descricao = models.CharField(max_length=100)
     nivel = models.CharField(
         max_length=1, choices=NIVEL, blank=False, null=False, default='B')
+
+    class Meta:
+        verbose_name_plural = 'Cursos'
+        verbose_name = 'curso'
+        ordering = ('codigo_curso',)
 
     def __str__(self):
         return self.descricao
